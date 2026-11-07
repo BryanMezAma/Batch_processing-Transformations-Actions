@@ -85,9 +85,6 @@ class SparkUtils:
     def count_nulls(df):
         return df.select([count(when(isnull(c), c)).alias(c) for c in df.columns])
 
-    # ------------------------------------------------------------------
-    # Debugging helpers (useful on EMR, where stdout is buried in logs)
-    # ------------------------------------------------------------------
 
     @staticmethod
     def schema_as_text(df) -> str:
